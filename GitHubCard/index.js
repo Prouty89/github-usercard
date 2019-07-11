@@ -2,21 +2,20 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-const axios = require('axios');
+const cards = document.querySelector('.cards')
 
 // Make a request for a user with a given ID
-axios.get('https://api.github.com/users/Prouty89')
-  .then(function (response) {
+axios.get(`https://api.github.com/users/Prouty89`)
+  .then(data => {
     // handle success
-    console.log(response);
+    console.log ('Success', data) 
+  
   })
-  .catch(function (error) {
+  .catch(error => {
     // handle error
-    console.log(error);
+    console.log('ERROR: ', error);
   })
-  .finally(function () {
-    // always executed
-  });
+
 
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -61,6 +60,32 @@ const followersArray = [];
 </div>
 
 */
+//Create Function
+function createCards(imageUrl) {
+  const card = document.createElement('div')
+  const img = document.createElement('img')
+  const cardInfo = document.createElement('div')
+  const name = document.createElement('h3')
+  const userName = document.createElement('p')
+  const location = document.createElement('p')
+  const profile = document.createElement('p')
+
+//Styles
+card.classList.add('card')
+img.classList.add('card-img')
+name.classList.add('card-name')
+userName.classList.add('card-username')
+profile.classList.add('card-p')
+
+//Append
+card.appendChild(img)
+// card.appendChild(title)
+// card.appendChild
+
+
+
+  return card
+}
 
 /* List of LS Instructors Github username's: 
   tetondan
